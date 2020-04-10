@@ -3,6 +3,7 @@ table, tr {
     border-collapse: collapse;
     border-color: gray;
 }
+
 body {
     padding: 35px;
     background-color: lightcyan;
@@ -10,11 +11,13 @@ body {
     font-size: large;
     font-weight: 120;
 }
+
 caption {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     color: brown;
 }
+
 #div1 {
     margin: 10px 40px 50px;
     color: blue;
