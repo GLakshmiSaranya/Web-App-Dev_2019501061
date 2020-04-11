@@ -1,29 +1,30 @@
 table, tr {
-    border: 2px solid black;
-    border-collapse: collapse;
-    border-color: gray;
+  border: 2px solid #000000;
+  border-collapse: collapse;
+  border-color: #808080;
 }
 
 body {
-    padding: 35px;
-    background-color: lightcyan;
-    font-family: "Times New Roman", Times, serif;
-    font-size: large;
-    font-weight: 120;
+  padding: 35px;
+  background-color: lightcyan;
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  font-weight: 120;
 }
 
 caption {
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    color: brown;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  color: #A52A2A;
 }
 
 #div1 {
-    margin: 10px 40px 50px;
-    color: blue;
+  margin: 10px 40px 50px;
+  color: #0000FF;
 }
 
 ul {
-    list-style-type: square;
-    color: black;
+  list-style-type: square;
+  color: #000000;
 }
+/*# sourceMappingURL=mystylesheet.css.map */

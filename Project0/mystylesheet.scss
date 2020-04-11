@@ -1,0 +1,47 @@
+$color-black: #000000;
+$color-brown: #A52A2A;
+$color-blue: #0000FF;
+$color-gray: #808080;
+
+table, tr {
+    border: 2px solid $color-black;
+    border-collapse: collapse;
+    border-color: $color-gray;
+}
+
+body {
+    padding: 35px;
+    background-color: lightcyan;
+    font-family: "Times New Roman", Times, serif;
+    font-size: large;
+    font-weight: 120;
+}
+
+caption {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: $color-brown;
+}
+
+#div1 {
+    margin: 10px 40px 50px;
+    color: $color-blue;
+}
+
+ul {
+    list-style-type: square;
+    color: $color-black;
+}
+
+@media screen {
+    body {
+        color: $color-blue;
+    }
+}
+  
+@media print {
+    body {
+        color: $color-black; 
+        background-color: white;
+    }
+}
