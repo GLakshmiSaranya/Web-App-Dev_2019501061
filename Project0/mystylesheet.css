@@ -18,6 +18,10 @@ caption {
   color: #A52A2A;
 }
 
+.form-div {
+  text-align: center;
+}
+
 #div1 {
   margin: 10px 40px 50px;
   color: #0000FF;
@@ -26,5 +30,37 @@ caption {
 ul {
   list-style-type: square;
   color: #000000;
+}
+
+.container {
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen {
+  body {
+    color: #0000FF;
+  }
+}
+
+@media print {
+  body {
+    color: #000000;
+    background-color: white;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  body {
+    background-color: #808080;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  body {
+    background-color: rgba(247, 140, 247, 0.479);
+  }
 }
 /*# sourceMappingURL=mystylesheet.css.map */

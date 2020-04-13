@@ -2,6 +2,7 @@ $color-black: #000000;
 $color-brown: #A52A2A;
 $color-blue: #0000FF;
 $color-gray: #808080;
+$color-pink: rgba(247, 140, 247, 0.479);
 
 table, tr {
     border: 2px solid $color-black;
@@ -23,6 +24,10 @@ caption {
     color: $color-brown;
 }
 
+.form-div {
+    text-align: center;
+}
+
 #div1 {
     margin: 10px 40px 50px;
     color: $color-blue;
@@ -31,6 +36,11 @@ caption {
 ul {
     list-style-type: square;
     color: $color-black;
+}
+
+.container {
+    text-align: center;
+    align-items: center;
 }
 
 @media screen {
@@ -43,5 +53,17 @@ ul {
     body {
         color: $color-black; 
         background-color: white;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    body {
+        background-color: $color-gray;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    body {
+        background-color: $color-pink;
     }
 }
