@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Registration page</title>
+            <style>
+                .container {
+                    text-align: center;
+                }
+
+                body {
+                    background-color:cornsilk;
+                    color: darkblue;
+                }
+
+                h2 {
+                    color: olivedrab;
+                }
+            </style>
+        </head>
+        
+        <body>
+            <div class = "container">
+                <h2>SignUp Form</h2>
+                <form action = "/register" method = "POST">
+                    <div class = "form-group">
+                        <br><br>
+                        <label for = "name"><pre>Your Name</pre></label>
+                        <input type = "text" class = "form-control" id = "name" placeholder = "Firstname Lastname" name = "name" required = "required">
+                        <br><br>
+                        <label for = "email"><pre>Your Email</pre></label>
+                        <input type = "email" class = "form-control" id = "email" placeholder = "Enter your email" name = "email" required = "required">
+                        <br><br>
+                        <label for = "pwd"><pre>Your Password</pre></label>
+                        <input type = "password" class = "form-control" id = "pwd" placeholder = "Enter your password" name = "pwd" required = "required">
+                    </div>
+                    <br><br>
+                    <div class = "form-group">
+                        <input class = "form-check-input" type = "checkbox" name = "agree"><b>Yes, I agree</b>
+                        </label>
+                    </div>
+                    <br><br>
+                    <button type = "submit" class = "btn">Register</button>
+                    <button type = "submit" class ="btn" formaction = "/authorized">Login</button>
+                </form>
+                <div class = "text-center"><h1>{{msg}}</h1></div>
+            </div>
+        </body>
+    </html>
