@@ -15,40 +15,61 @@
                 h2 {
                     color: olivedrab;
                 }
+                
+                p{
+                    color : red;
+                }
             </style>
+
             <script>
                 function checkForm(form) {
+                    document.getElementById('email_error').innerHTML = '';
+                    document.getElementById('pwd_error').innerHTML = '';
+                    
                     if (form.email.value == "") {
-                        alert("Error: email cannot be blank!");
+                        document.getElementById('email_error').innerHTML = 'email cannot be blank!';
+                        //alert("Error: email cannot be blank!");
                         form.email.focus();
                         return false;
+                    } else if (form.email.value != "") {
+                        if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.email.value))) {
+                            document.getElementById('email_error').innerHTML = 'You have entered an invalid email address!';
+                            //alert("Error: You have entered an invalid email address!");
+                            form.email.focus();
+                            return false;
+                        }
                     }
                     if (form.pwd.value == "") {
-                        alert("Error: Password cannot be blank!");
+                        document.getElementById('pwd_error').innerHTML = 'Password cannot be blank!';
+                        //alert("Error: Password cannot be blank!");
                         form.pwd.focus();
                         return false;
                     }
                     if(form.pwd.value != "") {
                         if(form.pwd.value.length < 6) {
-                            alert("Error: Password must contain at least 6 characters!");
+                            document.getElementById('pwd_error').innerHTML = 'Password must contain at least 6 characters!';
+                            //alert("Error: Password must contain at least 6 characters!");
                             form.pwd.focus();
                             return false;
                         }
                         pattern = /[a-z]/;
                         if(!pattern.test(form.pwd.value)) {
-                            alert("Error: password must contain at least one lowercase letter (a-z)!");
+                            document.getElementById('pwd_error').innerHTML = 'Password must contain at least one lowercase letter (a-z)!';
+                            //alert("Error: Password must contain at least one lowercase letter (a-z)!");
                             form.pwd.focus();
                             return false;
                         }
                         pattern = /[A-Z]/;
                         if(!pattern.test(form.pwd.value)) {
-                            alert("Error: password must contain at least one uppercase letter (A-Z)!");
+                            document.getElementById('pwd_error').innerHTML = 'Password must contain at least one uppercase letter (A-Z)!';
+                            //alert("Error: Password must contain at least one uppercase letter (A-Z)!");
                             form.pwd.focus();
                             return false;
                         }
                         pattern = /[0-9]/;
                         if(!pattern.test(form.pwd.value)) {
-                            alert("Error: password must contain at least one number (0-9)!");
+                            document.getElementById('pwd_error').innerHTML = 'Password must contain at least one number (0-9)!';
+                            //alert("Error: Password must contain at least one number (0-9)!");
                             form.pwd.focus();
                             return false;
                         }
@@ -65,12 +86,15 @@
                         <br><br>
                         <label for = "name"><pre>Your Name</pre></label>
                         <input type = "text" class = "form-control" id = "name" placeholder = "Firstname Lastname" name = "name" required = "required">
+                        <span class="error"><p id="name_error"></p></span>
                         <br><br>
                         <label for = "email"><pre>Your Email</pre></label>
                         <input type = "email" class = "form-control" id = "email" placeholder = "Enter your email" name = "email" required = "required">
+                        <span class="error"><p id="email_error"></p></span>
                         <br><br>
                         <label for = "pwd"><pre>Your Password</pre></label>
                         <input type = "password" class = "form-control" id = "pwd" placeholder = "Enter your password" name = "pwd" required = "required">
+                        <span class="error"><p id="pwd_error"></p></span>
                     </div>
                     <br><br>
                     <div class = "form-group">
