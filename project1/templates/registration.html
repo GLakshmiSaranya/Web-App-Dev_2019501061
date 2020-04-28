@@ -1,111 +1,111 @@
 <!DOCTYPE html>
-    <html>
-        <head>
-            <title>Registration page</title>
-            <style>
-                .container {
-                    text-align: center;
-                }
+<html>
+    <head>
+        <title>Registration page</title>
+        <style>
+            .container {
+                text-align: center;
+            }
 
-                body {
-                    background-color:cornsilk;
-                    color: darkblue;
-                }
+            body {
+                background-color:cornsilk;
+                color: darkblue;
+            }
 
-                h2 {
-                    color: olivedrab;
-                }
+            h2 {
+                color: olivedrab;
+            }
                 
-                p{
-                    color : red;
-                }
-            </style>
+            p {
+                color : red;
+            }
+        </style>
 
-            <script>
-                function checkForm(form) {
-                    document.getElementById('email_error').innerHTML = '';
-                    document.getElementById('pwd_error').innerHTML = '';
+        <script>
+            function checkForm(form) {
+                document.getElementById('email_error').innerHTML = '';
+                document.getElementById('pwd_error').innerHTML = '';
                     
-                    if (form.email.value == "") {
-                        document.getElementById('email_error').innerHTML = 'email cannot be blank!';
-                        //alert("Error: email cannot be blank!");
+                if (form.email.value == "") {
+                    document.getElementById('email_error').innerHTML = 'email cannot be blank!';
+                    //alert("Error: email cannot be blank!");
+                    form.email.focus();
+                    return false;
+                } else if (form.email.value != "") {
+                    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.email.value))) {
+                        document.getElementById('email_error').innerHTML = 'You have entered an invalid email address!';
+                        //alert("Error: You have entered an invalid email address!");
                         form.email.focus();
                         return false;
-                    } else if (form.email.value != "") {
-                        if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.email.value))) {
-                            document.getElementById('email_error').innerHTML = 'You have entered an invalid email address!';
-                            //alert("Error: You have entered an invalid email address!");
-                            form.email.focus();
-                            return false;
-                        }
                     }
-                    if (form.pwd.value == "") {
-                        document.getElementById('pwd_error').innerHTML = 'Password cannot be blank!';
-                        //alert("Error: Password cannot be blank!");
+                }
+                if (form.pwd.value == "") {
+                    document.getElementById('pwd_error').innerHTML = 'Password cannot be blank!';
+                    //alert("Error: Password cannot be blank!");
+                    form.pwd.focus();
+                    return false;
+                }
+                if(form.pwd.value != "") {
+                    if(form.pwd.value.length < 6) {
+                        document.getElementById('pwd_error').innerHTML = 'Password must contain at least 6 characters!';
+                        //alert("Error: Password must contain at least 6 characters!");
                         form.pwd.focus();
                         return false;
                     }
-                    if(form.pwd.value != "") {
-                        if(form.pwd.value.length < 6) {
-                            document.getElementById('pwd_error').innerHTML = 'Password must contain at least 6 characters!';
-                            //alert("Error: Password must contain at least 6 characters!");
-                            form.pwd.focus();
-                            return false;
-                        }
-                        pattern = /[a-z]/;
-                        if(!pattern.test(form.pwd.value)) {
-                            document.getElementById('pwd_error').innerHTML = 'Password must contain at least one lowercase letter (a-z)!';
-                            //alert("Error: Password must contain at least one lowercase letter (a-z)!");
-                            form.pwd.focus();
-                            return false;
-                        }
-                        pattern = /[A-Z]/;
-                        if(!pattern.test(form.pwd.value)) {
-                            document.getElementById('pwd_error').innerHTML = 'Password must contain at least one uppercase letter (A-Z)!';
-                            //alert("Error: Password must contain at least one uppercase letter (A-Z)!");
-                            form.pwd.focus();
-                            return false;
-                        }
-                        pattern = /[0-9]/;
-                        if(!pattern.test(form.pwd.value)) {
-                            document.getElementById('pwd_error').innerHTML = 'Password must contain at least one number (0-9)!';
-                            //alert("Error: Password must contain at least one number (0-9)!");
-                            form.pwd.focus();
-                            return false;
-                        }
+                    pattern = /[a-z]/;
+                    if(!pattern.test(form.pwd.value)) {
+                        document.getElementById('pwd_error').innerHTML = 'Password must contain at least one lowercase letter (a-z)!';
+                        //alert("Error: Password must contain at least one lowercase letter (a-z)!");
+                        form.pwd.focus();
+                        return false;
+                    }
+                    pattern = /[A-Z]/;
+                    if(!pattern.test(form.pwd.value)) {
+                        document.getElementById('pwd_error').innerHTML = 'Password must contain at least one uppercase letter (A-Z)!';
+                        //alert("Error: Password must contain at least one uppercase letter (A-Z)!");
+                        form.pwd.focus();
+                        return false;
+                    }
+                    pattern = /[0-9]/;
+                    if(!pattern.test(form.pwd.value)) {
+                        document.getElementById('pwd_error').innerHTML = 'Password must contain at least one number (0-9)!';
+                        //alert("Error: Password must contain at least one number (0-9)!");
+                        form.pwd.focus();
+                        return false;
                     }
                 }
-            </script>
-        </head>
+            }
+        </script>
+    </head>
         
-        <body>
-            <div class = "container">
-                <h2>SignUp Form</h2>
-                <form action = "/register" method = "POST" onsubmit = "return checkForm(this);">
-                    <div class = "form-group">
-                        <br><br>
-                        <label for = "name"><pre>Your Name</pre></label>
-                        <input type = "text" class = "form-control" id = "name" placeholder = "Firstname Lastname" name = "name" required = "required">
-                        <span class="error"><p id="name_error"></p></span>
-                        <br><br>
-                        <label for = "email"><pre>Your Email</pre></label>
-                        <input type = "email" class = "form-control" id = "email" placeholder = "Enter your email" name = "email" required = "required">
-                        <span class="error"><p id="email_error"></p></span>
-                        <br><br>
-                        <label for = "pwd"><pre>Your Password</pre></label>
-                        <input type = "password" class = "form-control" id = "pwd" placeholder = "Enter your password" name = "pwd" required = "required">
-                        <span class="error"><p id="pwd_error"></p></span>
-                    </div>
+    <body>
+        <div class = "container">
+            <h2>SignUp Form</h2>
+            <form action = "/register" method = "POST" onsubmit = "return checkForm(this);">
+                <div class = "form-group">
                     <br><br>
-                    <div class = "form-group">
-                        <input class = "form-check-input" type = "checkbox" name = "agree"><b>Yes, I agree</b>
-                        </label>
-                    </div>
+                    <label for = "name"><pre>Your Name</pre></label>
+                    <input type = "text" class = "form-control" id = "name" placeholder = "Firstname Lastname" name = "name" required = "required">
+                    <span class="error"><p id="name_error"></p></span>
                     <br><br>
-                    <button type = "submit" class = "btn">Register</button>
-                    <button type = "submit" class ="btn" formaction = "/authorized">Login</button>
-                </form>
-                <div class = "text-center"><h1>{{msg}}</h1></div>
-            </div>
-        </body>
-    </html>
+                    <label for = "email"><pre>Your Email</pre></label>
+                    <input type = "email" class = "form-control" id = "email" placeholder = "Enter your email" name = "email" required = "required">
+                    <span class="error"><p id="email_error"></p></span>
+                    <br><br>
+                    <label for = "pwd"><pre>Your Password</pre></label>
+                    <input type = "password" class = "form-control" id = "pwd" placeholder = "Enter your password" name = "pwd" required = "required">
+                    <span class="error"><p id="pwd_error"></p></span>
+                </div>
+                <br><br>
+                <div class = "form-group">
+                    <input class = "form-check-input" type = "checkbox" name = "agree"><b>Yes, I agree</b>
+                    </label>
+                </div>
+                <br><br>
+                <button type = "submit" class = "btn">Register</button>
+                <button type = "submit" class ="btn" formaction = "/authorized">Login</button>
+            </form>
+            <div class = "text-center"><h1>{{msg}}</h1></div>
+        </div>
+    </body>
+</html>
